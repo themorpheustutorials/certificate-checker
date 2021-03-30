@@ -1,0 +1,42 @@
+version: '3.9'
+services:
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      - 'POSTGRES_PASSWORD=SECRET_PASSWORD'
+      - 'POSTGRES_DB=cert-checker'
+    volumes:
+      - 'postgres-data:/var/lib/postgres/data'
+
+  app:
+    image: nginx:stable-alpine
+    restart: always
+    depends_on:
+      - cert-checker
+    ports:
+      - '8080:80'
+    volumes:
+      - './resources/nginx.conf:/etc/nginx/conf.d/default.conf'
+      - 'cert-checker-static:/usr/share/nginx/html/static/'
+
+  cert-checker:
+    build:
+      context: app
+    restart: always
+    depends_on:
+      - postgres
+    environment:
+      - 'SQL_ENGINE=django.db.backends.postgresql'
+      - 'SQL_HOST=postgres'
+      - 'SQL_USER=postgres'
+      - 'SQL_PASSWORD=SECRET_PASSWORD'
+      - 'SQL_DATABASE=cert-checker'
+      - 'ALLOWED_HOSTS=cert-checker'
+      - 'DEBUG=1'
+    volumes:
+      - 'cert-checker-static:/home/app/web/static'
+
+volumes:
+  postgres-data:
+  cert-checker-static:
