@@ -23,7 +23,6 @@ RUN pip install --prefix=/build/venv -r requirements.txt
 
 FROM python:3.9-alpine
 ARG DBMS
-ARG AUTH
 ENV DBMS=${DBMS} PROJECT_NAME="app"
 
 # app config
