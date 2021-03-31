@@ -1,4 +1,4 @@
-from django.http import HttpResponse, HttpRequest, HttpResponseNotFound
+from django.http import HttpResponse, HttpRequest
 from django.shortcuts import render
 
 from .models import Certificate

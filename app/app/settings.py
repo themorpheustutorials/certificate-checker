@@ -129,22 +129,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
-MEDIA_ROOT = 'media/'
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'oauth2_provider.backends.OAuth2Backend',
 ]
 
-# accounts module
-# LOGIN_URL = 'base_app:discord_oauth'
-# LOGIN_REDIRECT_URL = "/"
-# LOGOUT_REDIRECT_URL = "/"
-
 # OAuth Settings
 OAUTH_URL = environ.get('OAUTH_URL')
 OAUTH_CLIENT_ID = environ.get("OAUTH_CLIENT_ID")
 OAUTH_CLIENT_SECRET = environ.get('OAUTH_CLIENT_SECRET')
-
-DEBUG = True
