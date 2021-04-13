@@ -13,19 +13,16 @@ services:
     image: nginx:stable-alpine
     restart: always
     depends_on:
-      - django
+      - cert-checker
     ports:
       - '8080:80'
     volumes:
       - './resources/nginx.conf:/etc/nginx/conf.d/default.conf'
-      - 'django-static:/usr/share/nginx/html/static/'
+      - 'cert-checker-static:/usr/share/nginx/html/static/'
 
-  django:
+  cert-checker:
     build:
       context: app
-      args:
-       - 'DBMS=postgres'
-       - 'AUTH=oauth'
     restart: always
     depends_on:
       - postgres
@@ -34,12 +31,12 @@ services:
       - 'SQL_HOST=postgres'
       - 'SQL_USER=postgres'
       - 'SQL_PASSWORD=SECRET_PASSWORD'
-      - 'SQL_DATABASE=django'
-      - 'ALLOWED_HOSTS=django'
+      - 'SQL_DATABASE=cert-checker'
+      - 'ALLOWED_HOSTS=cert-checker'
       - 'DEBUG=1'
     volumes:
-      - 'django-static:/home/app/web/static'
+      - 'cert-checker-static:/home/app/web/static'
 
 volumes:
   postgres-data:
-  django-static:
+  cert-checker-static:

@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Morpheus Certificates</title>
+        <link rel="stylesheet" href="{% static 'assets/css/base.css' %}"/>
+        <link rel="stylesheet" href="{% static 'assets/css/inter/inter.css' %}"/>
+        <link rel="shortcut icon" href="{% static 'assets/favicon.ico' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/index.css' %}"/>
+    </head>
+
+    <body class="box__container">
+        <form action="/certificate" method="get">
+            <div class="box">
+                <h3 class="box__title">Certificate Validity</h3>
+
+                <input class="input" autofocus name="token" placeholder="Token" required>
+
+                <div class="box__actions">
+                    <button class="button" type="submit">Check</button>
+                </div>
+            </div>
+        </form>
+        <div class="license">
+            Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a>
+            from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+            is licensed by
+            <a href="https://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">
+                CC 3.0 BY
+            </a>
+        </div>
+    </body>
+</html>

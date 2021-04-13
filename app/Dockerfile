@@ -51,10 +51,8 @@ RUN if [[ "${AUTH}" == "oauth"]]; then apk add --no-cache libffi-dev openssl-dev
 COPY --from=builder /build/venv/ /usr/local/
 
 # copy project
-COPY --chown=app:app app ${APP_HOME}
-COPY --chown=app:app entrypoint.sh ${APP_HOME}
-COPY --chown=app:app manage.py ${APP_HOME}
+COPY --chown=app:app . ${APP_HOME}
 
-ENTRYPOINT ["/bin/sh", "${APP_HOME}/entrypoint.sh"]
+ENTRYPOINT ["/bin/sh", "entrypoint.sh"]
 EXPOSE 8000
 USER app
