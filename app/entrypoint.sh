@@ -8,12 +8,10 @@ case ${DBMS} in
 "mariadb")
   export SQL_ENGINE=django.db.backends.mysql
   export SQL_PORT=3306
-  export SQL_DATABASE=${PROJECT_NAME}
   ;;
 "postgres")
   export SQL_ENGINE=django.db.backends.postgresql
   export SQL_PORT=5432
-  export SQL_DATABASE=${PROJECT_NAME}
   ;;
 "sqlite3")
   export SQL_ENGINE=django.db.backends.sqlite3

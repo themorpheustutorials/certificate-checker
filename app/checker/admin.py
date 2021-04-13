@@ -1,5 +1,5 @@
 from django.contrib import admin
-from oauth2_provider.models import AccessToken, Application, Grant, RefreshToken
+from oauth2_provider.models import AccessToken, Application, Grant, RefreshToken, IDToken
 
 from .models import Certificate
 
@@ -11,3 +11,4 @@ admin.site.unregister(AccessToken)
 admin.site.unregister(Application)
 admin.site.unregister(Grant)
 admin.site.unregister(RefreshToken)
+admin.site.unregister(IDToken)

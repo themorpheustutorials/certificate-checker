@@ -7,7 +7,7 @@ ARG DBMS
 WORKDIR /build
 
 RUN apk update \
- && apk add gcc python3-dev musl-dev jpeg-dev zlib-dev
+ && apk add gcc python3-dev musl-dev jpeg-dev zlib-dev libffi-dev openssl-dev cargo
 
 # install database dependencies
 RUN if [[ "${DBMS}" == "postgres" ]]; then apk add postgresql-dev; fi
@@ -36,6 +36,8 @@ RUN mkdir -p ${HOME} \
  && adduser -S app -G app \
  && mkdir -p "${APP_HOME}/app/media"
 WORKDIR ${APP_HOME}
+
+RUN apk add --no-cache libffi-dev openssl-dev
 
 # install database dependencies
 RUN if [[ "${DBMS}" == "postgres" ]]; then apk add --no-cache libpq; fi
