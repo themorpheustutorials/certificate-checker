@@ -9,7 +9,7 @@ class Certificate(models.Model):
     token = models.CharField(max_length=100, null=False, blank=False, unique=True)
     link = models.CharField(max_length=200)
     approved_by = models.CharField(max_length=80)
-    description = models.CharField(max_length=8192)
+    description = models.TextField(max_length=8192)
 
     def __str__(self):
         return f"[{self.type}] {self.person}"
