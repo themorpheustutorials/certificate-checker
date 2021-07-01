@@ -1,7 +1,7 @@
 ARG DBMS="postgres"
 ARG AUTH="localauth"
 
-FROM python:3.9-alpine as builder
+FROM python:3.9.6-alpine as builder
 ARG DBMS
 ARG AUTH
 
@@ -27,7 +27,7 @@ RUN cp rqmts/requirements.txt requirements.txt; \
 
 RUN pip install --prefix=/build/venv -r requirements.txt
 
-FROM python:3.9-alpine
+FROM python:3.9.6-alpine
 ARG DBMS
 ARG AUTH
 
