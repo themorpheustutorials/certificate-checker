@@ -27,5 +27,5 @@ export CF_Token="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 export CF_Account_ID="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 export CF_Zone_ID="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 
-curl -fsSL https://github.com/themorpheustutorials/certificate-checker/blob/master/lxc_deploy.sh | sh
+curl -fsSL https://raw.githubusercontent.com/themorpheustutorials/certificate-checker/master/lxc_depoy.sh | sh
 ```
