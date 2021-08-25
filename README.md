@@ -15,3 +15,17 @@ docker-compose exec cert-checker /bin/sh -c 'python manage.py createsuperuser --
 
 Afterwards you can access the application: [http://localhost:8080](http://localhost:8080)  
 You can change the port inside the [`docker-compose.yml`](./docker-compose.yml#L29)
+
+## Deploy inside LXC (Alpine 3.13)
+If you have a setup like [docs.secshell.net](https://docs.secshell.net), you can also deploy certificate-checker using [this script](./lxc_depoy.sh).
+Make sure to execute the following commands before execution:
+```shell
+apk add --update --no-cache curl
+
+export DOMAIN="certificates.the-morpheus.de"
+export CF_Token="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+export CF_Account_ID="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+export CF_Zone_ID="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+
+curl -fsSL https://github.com/themorpheustutorials/certificate-checker/blob/master/lxc_deploy.sh | sh
+```
