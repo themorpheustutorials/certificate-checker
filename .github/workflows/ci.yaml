@@ -81,8 +81,8 @@ jobs:
     strategy:
       matrix:
         python-version: [ 3.9 ]
-        dbms: [ mariadb, postgres, sqlite3 ]
-        auth: [ localauth, openldap ]
+        dbms: [ postgres, mariadb ]    # sqlite3
+        auth: [ localauth ]    # openldap
 
     steps:
       - uses: actions/checkout@v2
