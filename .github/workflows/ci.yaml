@@ -163,8 +163,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dbms: [ 'sqlite3', 'mariadb', 'postgres' ]
-        auth: [ 'localauth', 'openldap', 'oauth2' ]
+        dbms: [ 'mariadb', 'postgres' ]     # 'sqlite3', 
+        auth: [ 'localauth' ]     #, 'openldap', 'oauth2'
 
     steps:
       - uses: actions/checkout@v2
